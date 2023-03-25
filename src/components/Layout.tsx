@@ -1,6 +1,6 @@
-import "./Layout.scss";
+import "./scss/Layout.scss";
 import Button from "./Button";
-import StandsDB, { isStand } from "./StandsDB";
+import StandsDB, { isStand } from "../data/StandsDB";
 
 function Layout(props: {
   currStand: number;

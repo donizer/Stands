@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { PixiComp } from "./PixiComp";
-import "./App.scss";
-import Layout from "./Layout";
-import StandsDB from "./StandsDB";
+import { PixiComp } from "./components/PixiComp";
+import "./scss/app.scss";
+import Layout from "./components/Layout";
+import StandsDB from "./data/StandsDB";
 
 function App() {
   const [currStand, setCurrStand] = useState(0);

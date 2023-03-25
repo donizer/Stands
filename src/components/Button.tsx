@@ -1,5 +1,5 @@
-import "./Button.scss";
-import { isStand } from "./StandsDB";
+import "./scss/Button.scss";
+import { isStand } from "../data/StandsDB";
 
 export default function Button(props: {
   currStand: number;

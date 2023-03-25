@@ -1,8 +1,8 @@
 import { Stage, Container, Sprite } from "@pixi/react";
 import { useEffect, useState } from "react";
-import CssVarController from "./CssVarController";
-import MousePos from "./MousePos";
-import { isStand } from "./StandsDB";
+import CssVarController from "../Ts/CssVarController"
+import MousePos from "../Ts/MousePos";
+import { isStand } from "../data/StandsDB";
 
 export const PixiComp = (props: {
   standIndex: number;

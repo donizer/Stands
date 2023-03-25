@@ -94,27 +94,6 @@ const StandsDB: isStand[] = [
     id: 5,
     name: "Yasuho",
   },
-  {
-    id: 1,
-    name: "Funny",
-    logo: FunnyD4C,
-  },
-  {
-    id: 2,
-    name: "Kira",
-  },
-  {
-    id: 3,
-    name: "DIO",
-  },
-  {
-    id: 4,
-    name: "Jotaro",
-  },
-  {
-    id: 5,
-    name: "Yasuho",
-  },
 ];
 
 for (let i = 0; i < StandsDB.length; i++) {
