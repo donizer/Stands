@@ -1,4 +1,4 @@
-import "./scss/Layout.scss";
+import "../scss/Layout.scss";
 import Button from "./Button";
 import StandsDB, { isStand } from "../data/StandsDB";
 

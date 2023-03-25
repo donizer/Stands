@@ -1,12 +1,12 @@
-import empty from "./assets/images/empty.png";
-import FunnyD4C from "./assets/images/FunnyD4C.png";
-import Funny from "./assets/images/funny.png";
-import D4C from "./assets/images/d4c.png";
-import FunnyBack from "./assets/images/amFlag.jpg";
-import KiraKiller from "./assets/images/KiraKillerQeen.png";
-import Kira from "./assets/images/kira.png";
-import Killer from "./assets/images/killerQueen.png";
-import KiraBack from "./assets/images/kiraTiePattern.jpg";
+import empty from "../assets/images/empty.png";
+import FunnyD4C from "../assets/images/FunnyD4C.png";
+import Funny from "../assets/images/funny.png";
+import D4C from "../assets/images/d4c.png";
+import FunnyBack from "../assets/images/amFlag.jpg";
+import KiraKiller from "../assets/images/KiraKillerQeen.png";
+import Kira from "../assets/images/kira.png";
+import Killer from "../assets/images/killerQueen.png";
+import KiraBack from "../assets/images/kiraTiePattern.jpg";
 
 export interface isStand {
   id: number;

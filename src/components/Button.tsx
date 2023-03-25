@@ -1,4 +1,4 @@
-import "./scss/Button.scss";
+import "../scss/Button.scss";
 import { isStand } from "../data/StandsDB";
 
 export default function Button(props: {
