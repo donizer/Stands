@@ -4,6 +4,7 @@ import "./scss/App.scss";
 import Layout from "./components/Layout";
 import StandsDB from "./data/StandsDB";
 
+
 function App() {
   const [currStand, setCurrStand] = useState(0);
   return (
@@ -18,6 +19,7 @@ function App() {
         setStand={setCurrStand}
         stand={StandsDB[currStand]}
       />
+
     </>
   );
 }

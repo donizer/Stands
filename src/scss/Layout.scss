@@ -39,3 +39,18 @@
     // background-color: #c7209580;
   }
 }
+
+.svgFlexContainer {
+  // background-color: #fff;
+  position: relative;
+  display: flex;
+  width: 512px;
+  height: 100%;
+
+  align-items: center;
+
+  #stats-circle {
+    position: absolute;
+    width: 512px;
+  }
+}

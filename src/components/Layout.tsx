@@ -1,11 +1,12 @@
 import "../scss/Layout.scss";
 import Button from "./Button";
-import StandsDB, { isStand } from "../data/StandsDB";
+import StandsDB, { IObjStandMaster } from "../data/StandsDB";
+import SVGAElement from "../components/SVGComponent";
 
 function Layout(props: {
   currStand: number;
   setStand: (num: number) => void;
-  stand: isStand;
+  stand: IObjStandMaster;
 }) {
   return (
     <div className="wrapper">
@@ -23,7 +24,11 @@ function Layout(props: {
           })}
         </nav>
       </header>
-      <main></main>
+      <main>
+        <div className="svgFlexContainer">
+          <SVGAElement objStandMaster={props.stand} />
+        </div>
+      </main>
     </div>
   );
 }

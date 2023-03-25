@@ -1,10 +1,10 @@
 import "../scss/Button.scss";
-import { isStand } from "../data/StandsDB";
+import { IObjStandMaster } from "../data/StandsDB";
 
 export default function Button(props: {
   currStand: number;
   setStand: (num: number) => void;
-  stand: isStand;
+  stand: IObjStandMaster;
 }) {
   return (
     <>

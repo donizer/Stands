@@ -8,41 +8,72 @@ import Kira from "../assets/images/kira.png";
 import Killer from "../assets/images/killerQueen.png";
 import KiraBack from "../assets/images/kiraTiePattern.jpg";
 
-export interface isStand {
+export interface IObjStandMaster {
   id: number;
-  name?: string;
-  logo?: string;
-  master?: {
+  name: string;
+  logo: string;
+  maincolor: string;
+  master: {
     image: string;
     pos: {
       x: number;
       y: number;
     };
   };
-  stand?: {
+  stand: {
     image: string;
     pos: {
       x: number;
       y: number;
     };
+    stats: string[];
   };
-  backgroundPixi?: string;
-  backgroundCSS?: {
-    image: string;
-    scale: string;
+  background: {
+    pixi: {
+      image: string;
+    };
+    css: {
+      color: string;
+      scale?: string;
+    };
   };
 }
 
-const StandsDB: isStand[] = [
+const StandsDB: IObjStandMaster[] = [
   {
     id: 0,
     name: "",
     logo: empty,
+    maincolor: "",
+    master: {
+      image: empty,
+      pos: {
+        x: 1.6,
+        y: 2,
+      },
+    },
+    stand: {
+      image: empty,
+      pos: {
+        x: 1.35,
+        y: 2,
+      },
+      stats: [],
+    },
+    background: {
+      pixi: {
+        image: empty,
+      },
+      css: {
+        color: "#000000",
+      },
+    },
   },
   {
     id: 1,
     name: "Funny",
     logo: FunnyD4C,
+    maincolor: "#ec33d4",
     master: {
       image: Funny,
       pos: {
@@ -56,13 +87,22 @@ const StandsDB: isStand[] = [
         x: 1.35,
         y: 2,
       },
+      stats: ["A", "A", "A", "A", "A", "A"],
     },
-    backgroundPixi: FunnyBack,
+    background: {
+      pixi: {
+        image: FunnyBack,
+      },
+      css: {
+        color: "#000000",
+      },
+    },
   },
   {
     id: 2,
     name: "Kira",
     logo: KiraKiller,
+    maincolor: "#ce8d15",
     master: {
       image: Kira,
       pos: {
@@ -76,36 +116,42 @@ const StandsDB: isStand[] = [
         x: 1.6,
         y: 2,
       },
+      stats: ["C", "B", "D", "E", "D", "B"],
     },
-    backgroundCSS: {
-      image: `url(${KiraBack})`,
-      scale: "20%",
+    background: {
+      pixi: {
+        image: empty,
+      },
+      css: {
+        color: `url(${KiraBack})`,
+        scale: "20%",
+      },
     },
   },
-  {
-    id: 3,
-    name: "DIO",
-  },
-  {
-    id: 4,
-    name: "Jotaro",
-  },
-  {
-    id: 5,
-    name: "Yasuho",
-  },
+  // {
+  //   id: 3,
+  //   name: "DIO",
+  // },
+  // {
+  //   id: 4,
+  //   name: "Jotaro",
+  // },
+  // {
+  //   id: 5,
+  //   name: "Yasuho",
+  // },
 ];
 
 for (let i = 0; i < StandsDB.length; i++) {
-  if (StandsDB[i].backgroundPixi === undefined) {
-    StandsDB[i].backgroundPixi = empty;
-  }
-  if (StandsDB[i].backgroundCSS === undefined) {
-    StandsDB[i].backgroundCSS = {
-      image: "",
-      scale: "",
-    };
-  }
+  // if (StandsDB[i].backgroundPixi === undefined) {
+  //   StandsDB[i].backgroundPixi = empty;
+  // }
+  // if (StandsDB[i].backgroundCSS === undefined) {
+  //   StandsDB[i].backgroundCSS = {
+  //     image: "",
+  //     scale: "",
+  //   };
+  // }
   console.log(typeof StandsDB[i].master);
   if (StandsDB[i].master?.image === undefined) {
     StandsDB[i].master = {
@@ -123,12 +169,10 @@ for (let i = 0; i < StandsDB.length; i++) {
         x: 0,
         y: 0,
       },
+      stats: ["A", "A", "A", "A", "A", "A"],
     };
   }
   StandsDB[i].id = i;
-
-  console.log(StandsDB[i].backgroundCSS);
-  // console.log(StandsDB[i].backgroundPixi, StandsDB[i].id);
 }
 
 export default StandsDB;

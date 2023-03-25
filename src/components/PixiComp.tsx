@@ -1,13 +1,13 @@
 import { Stage, Container, Sprite } from "@pixi/react";
 import { useEffect, useState } from "react";
-import CssVarController from "../Ts/CssVarController"
+import CssVarController from "../Ts/CssVarController";
 import MousePos from "../Ts/MousePos";
-import { isStand } from "../data/StandsDB";
+import { IObjStandMaster } from "../data/StandsDB";
 
 export const PixiComp = (props: {
   standIndex: number;
   setStand: (num: number) => void;
-  currStand: isStand;
+  currStand: IObjStandMaster;
 }) => {
   const [dimensions, setDimensions] = useState({ width: 0, heigth: 0 });
 
@@ -19,10 +19,12 @@ export const PixiComp = (props: {
   }, [document.body.clientWidth, document.body.clientHeight]);
 
   useEffect(() => {
+    let mainColor = new CssVarController("--mainColor");
     let bgImage = new CssVarController("--bgImage");
     let bgScale = new CssVarController("--bgScale");
-    bgImage.set(props.currStand.backgroundCSS?.image);
-    bgScale.set(props.currStand.backgroundCSS?.scale);
+    mainColor.set(props.currStand.maincolor);
+    bgImage.set(props.currStand.background.css?.color);
+    bgScale.set(props.currStand.background.css?.scale);
   }, [props.currStand.stand]);
 
   // console.log(dimensions.heigth / 1000);
@@ -39,7 +41,7 @@ export const PixiComp = (props: {
       }}
     >
       <Sprite
-        image={props.currStand.backgroundPixi}
+        image={props.currStand.background.pixi?.image}
         scale={dimensions.width / 5000}
         x={dimensions.width / 1.5}
         y={dimensions.heigth / 2.2}
