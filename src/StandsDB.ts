@@ -79,7 +79,7 @@ const StandsDB: isStand[] = [
     },
     backgroundCSS: {
       image: `url(${KiraBack})`,
-      scale: "25%",
+      scale: "20%",
     },
   },
   {

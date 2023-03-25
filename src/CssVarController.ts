@@ -8,8 +8,8 @@ export default class CssVarController {
   }
 
   // Create a function for getting a variable value
-  public get() {
-    if (typeof this.variable === undefined) return "no such variable";
+  public get(): string {
+    if (typeof this.variable === (undefined || null)) return "no such variable";
     // Get the styles (properties and values) for the root
     var rs = getComputedStyle(this.r);
     return rs.getPropertyValue(this.variable);

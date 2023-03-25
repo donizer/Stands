@@ -47,7 +47,7 @@ export const PixiComp = (props: {
       />
       <Container>
         <Sprite
-          scale={dimensions.heigth / 1300}
+          scale={dimensions.heigth / 1200}
           image={props.currStand.master?.image}
           x={
             dimensions.width / props.currStand.master!.pos.x + MousePos().x / 12
@@ -59,7 +59,7 @@ export const PixiComp = (props: {
           anchor={0.5}
         />
         <Sprite
-          scale={dimensions.heigth / 1300}
+          scale={dimensions.heigth / 1200}
           image={props.currStand.stand?.image}
           x={dimensions.width / props.currStand.stand!.pos.x + MousePos().x / 9} //
           y={
