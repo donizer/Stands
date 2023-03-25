@@ -235,7 +235,7 @@ function SVGComponent(props: { objStandMaster: IObjStandMaster }) {
         className="cls-4"
         id="diagram"
         d={path}
-        // fill={props.CurrentStand.mainColor}
+        fill={props.objStandMaster.maincolor}
       />
       <circle className="cls-2" cx={284} cy={286} r={200} />
       <path className="cls-2" d="m284,87v29" />
