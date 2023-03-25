@@ -35,6 +35,8 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
+          cache-dependency-path: standsVite/package-lock.json
+          dependency-path: standsVite/package.json
       - name: Install dependencies
         run: npm install
       - name: Build
