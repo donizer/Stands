@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { PixiComp } from "./components/PixiComp";
-import "./scss/app.scss";
+import "./scss/App.scss";
 import Layout from "./components/Layout";
 import StandsDB from "./data/StandsDB";
 
