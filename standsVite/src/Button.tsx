@@ -13,7 +13,6 @@ export default function Button(props: {
           props.setStand(props.stand.id);
           console.log(`current state is: ${props.stand.id}`);
         }}
-        key={props.stand.id}
         className="btn"
       >
         <p key={0} className="name">

@@ -1,15 +1,13 @@
-import { Stage, Container, Sprite, Text, Graphics } from "@pixi/react";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import amFlag from "./assets/images/amFlag.jpg";
-import funny from "./assets/images/funny.png";
-import d4c from "./assets/images/d4c.png";
+import { Stage, Container, Sprite } from "@pixi/react";
+import { useEffect, useState } from "react";
+import CssVarController from "./CssVarController";
 import MousePos from "./MousePos";
 import { isStand } from "./StandsDB";
 
 export const PixiComp = (props: {
-  currStand: number;
+  standIndex: number;
   setStand: (num: number) => void;
-  stand: isStand;
+  currStand: isStand;
 }) => {
   const [dimensions, setDimensions] = useState({ width: 0, heigth: 0 });
 
@@ -20,19 +18,29 @@ export const PixiComp = (props: {
     });
   }, [document.body.clientWidth, document.body.clientHeight]);
 
-  // console.log(dimensions.heigth / 1000);
+  useEffect(() => {
+    let bgImage = new CssVarController("--bgImage");
+    let bgScale = new CssVarController("--bgScale");
+    bgImage.set(props.currStand.backgroundCSS?.image);
+    bgScale.set(props.currStand.backgroundCSS?.scale);
+  }, [props.currStand.stand]);
 
+  // console.log(dimensions.heigth / 1000);
+  // console.log(dimensions.heigth / 1800)
   return (
     <Stage
       key={0}
       id="canvas"
       width={dimensions.width}
       height={dimensions.heigth}
-      options={{ backgroundColor: 0x000000 }}
+      options={{
+        backgroundAlpha: 0,
+        antialias: true,
+      }}
     >
       <Sprite
-        image={amFlag}
-        scale={0.3}
+        image={props.currStand.backgroundPixi}
+        scale={dimensions.width / 5000}
         x={dimensions.width / 1.5}
         y={dimensions.heigth / 2.2}
         anchor={0.5}
@@ -40,16 +48,23 @@ export const PixiComp = (props: {
       <Container>
         <Sprite
           scale={dimensions.heigth / 1300}
-          image={funny}
-          x={dimensions.width / 1.6 + MousePos().x / 12} //
-          y={dimensions.heigth / 2 + MousePos().y / 12} //
+          image={props.currStand.master?.image}
+          x={
+            dimensions.width / props.currStand.master!.pos.x + MousePos().x / 12
+          } //
+          y={
+            dimensions.heigth / props.currStand.master!.pos.y +
+            MousePos().y / 12
+          } //
           anchor={0.5}
         />
         <Sprite
           scale={dimensions.heigth / 1300}
-          image={d4c}
-          x={dimensions.width / 1.35 + MousePos().x / 9} //
-          y={dimensions.heigth / 2 + MousePos().y / 9} //
+          image={props.currStand.stand?.image}
+          x={dimensions.width / props.currStand.stand!.pos.x + MousePos().x / 9} //
+          y={
+            dimensions.heigth / props.currStand.stand!.pos.y + MousePos().y / 9
+          } //
           anchor={0.5}
         />
       </Container>

@@ -14,6 +14,7 @@ function Layout(props: {
           {StandsDB.slice(1).map((i) => {
             return (
               <Button
+                key={i.id}
                 currStand={props.currStand}
                 setStand={props.setStand}
                 stand={i}

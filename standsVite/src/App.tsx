@@ -9,9 +9,9 @@ function App() {
   return (
     <>
       <PixiComp
-        currStand={currStand}
+        standIndex={currStand}
         setStand={setCurrStand}
-        stand={StandsDB[currStand]}
+        currStand={StandsDB[currStand]}
       />
       <Layout
         currStand={currStand}
