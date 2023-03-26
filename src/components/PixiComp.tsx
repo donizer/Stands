@@ -26,11 +26,8 @@ export const PixiComp = (props: {
     bgImage.set(props.currStand.background.css?.color);
     bgScale.set(props.currStand.background.css?.scale);
   }, [props.currStand.stand]);
+ 
 
-  // let sensor = new Gyroscope();
-
-  // console.log(dimensions.heigth / 1000);
-  // console.log(dimensions.heigth / 1800)
   return (
     <Stage
       key={0}

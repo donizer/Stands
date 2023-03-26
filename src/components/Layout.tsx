@@ -12,6 +12,9 @@ function Layout(props: {
     document.getElementById("brgr-btn")!.classList.toggle("active");
     document.getElementById("nav")!.classList.toggle("active");
   }
+
+  let sensor = new DeviceMotionEvent("devicemotion");
+
   return (
     <div className="wrapper">
       <header>
@@ -37,6 +40,8 @@ function Layout(props: {
         ></button>
       </header>
       <main>
+        {sensor.acceleration?.x} : {sensor.acceleration?.y} :{" "}
+        {sensor.acceleration?.z}
         <audio
           onEnded={(e) => {
             e.currentTarget.src = props.stand.audio.main;
