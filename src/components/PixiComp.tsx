@@ -47,7 +47,7 @@ export const PixiComp = (props: {
       },
       true
     );
-  });
+  }, []);
 
   return (
     <Stage
