@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import StandsDB, { IObjStandMaster } from "../data/StandsDB";
+import { IObjStandMaster } from "../data/StandsDB";
 
-interface iStatPos {
+interface IStatPos {
   [key: string]: {
     x: number;
     y: number;
   };
 }
 
-const statCoords: iStatPos[] = [
+const statCoords: IStatPos[] = [
   {
     A: {
       x: 284,

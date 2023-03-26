@@ -27,7 +27,30 @@
   }
   main {
     grid-column: 2;
-    color: wheat;
+    color: #f5deb3ff;
+  }
+}
+
+.nav-btn {
+  // background-color: #fff;
+  content: "";
+  display: none;
+  width: 2px;
+  height: 15px;
+  &:before,
+  &:after {
+    content: " ";
+    position: absolute;
+    width: 4px;
+    height: 64px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  &::before {
+    rotate: (45deg);
+  }
+  &::after {
+    rotate: (-45deg);
   }
 }
 
@@ -36,10 +59,86 @@
   display: flex;
   align-items: center;
   position: relative;
-  width: 512px;
+  max-width: 512px;
   height: 100%;
   #stats-circle {
+    // width: 512px;
     position: absolute;
-    width: 512px;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .wrapper {
+    header {
+      nav {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        overflow: auto;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 64px 0 0;
+        background-color: #ffffff80;
+        top: -100%;
+        transition: all 0.2s ease;
+        &.active {
+          top: 0;
+        }
+      }
+    }
+  }
+  .nav-btn {
+    justify-self: end;
+    content: " ";
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 16px;
+    right: 16px;
+    width: 64px;
+    height: 64px;
+    background-color: #ffffff00;
+    &:before,
+    &:after {
+      content: " ";
+      position: absolute;
+      top: 32px;
+      right: 0;
+      width: 64px;
+      height: 4px;
+      transition: all 0.2s ease;
+      background-color: #fff;
+      border-radius: 8px;
+    }
+    &.active {
+      &::before {
+        rotate: (45deg);
+        top: 32px;
+      }
+      &::after {
+        rotate: (-45deg);
+        top: 32px;
+      }
+    }
+    &::before {
+      rotate: (0deg);
+      top: 24px;
+    }
+    &::after {
+      rotate: (0deg);
+      top: 42px;
+    }
+  }
+  .svgFlexContainer {
+    // background-color: #fff;
+    align-items: end;
+    padding-bottom: 32px;
   }
 }

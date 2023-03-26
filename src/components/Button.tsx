@@ -5,6 +5,7 @@ export default function Button(props: {
   currStand: number;
   setStand: (num: number) => void;
   stand: IObjStandMaster;
+  handleClick: () => void;
 }) {
   return (
     <>
@@ -12,6 +13,13 @@ export default function Button(props: {
         onClick={(e) => {
           props.setStand(props.stand.id);
           console.log(`current state is: ${props.stand.id}`);
+          props.handleClick();
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = props.stand.maincolor;
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = "var(--mainColor)";
         }}
         className="btn"
       >

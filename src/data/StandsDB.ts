@@ -3,10 +3,15 @@ import FunnyD4C from "../assets/images/FunnyD4C.png";
 import Funny from "../assets/images/funny.png";
 import D4C from "../assets/images/d4c.png";
 import FunnyBack from "../assets/images/amFlag.jpg";
+import FunnyAudiInit from "../assets/audio/d4c sound effect.mp3";
+import FunnyAudiMain from "../assets/audio/Funny Valentine Theme.mp3";
+
 import KiraKiller from "../assets/images/KiraKillerQeen.png";
 import Kira from "../assets/images/kira.png";
 import Killer from "../assets/images/killerQueen.png";
 import KiraBack from "../assets/images/kiraTiePattern.jpg";
+import KiraAudiInit from "../assets/audio/Killer Queen sound.mp3";
+import KiraAudiMain from "../assets/audio/Yoshikage Kira's Theme.mp3";
 
 export interface IObjStandMaster {
   id: number;
@@ -37,6 +42,10 @@ export interface IObjStandMaster {
       scale?: string;
     };
   };
+  audio: {
+    init: string;
+    main: string;
+  };
 }
 
 const StandsDB: IObjStandMaster[] = [
@@ -65,15 +74,19 @@ const StandsDB: IObjStandMaster[] = [
         image: empty,
       },
       css: {
-        color: "#000000",
+        color: "#00000000",
       },
+    },
+    audio: {
+      init: "",
+      main: "",
     },
   },
   {
     id: 1,
     name: "Funny",
     logo: FunnyD4C,
-    maincolor: "#ec33d4",
+    maincolor: "#ec33d4ff",
     master: {
       image: Funny,
       pos: {
@@ -87,7 +100,7 @@ const StandsDB: IObjStandMaster[] = [
         x: 1.35,
         y: 2,
       },
-      stats: ["A", "A", "A", "A", "A", "A"],
+      stats: ["A", "A", "C", "A", "A", "A"],
     },
     background: {
       pixi: {
@@ -97,12 +110,16 @@ const StandsDB: IObjStandMaster[] = [
         color: "#000000",
       },
     },
+    audio: {
+      init: FunnyAudiInit,
+      main: FunnyAudiMain,
+    },
   },
   {
     id: 2,
     name: "Kira",
     logo: KiraKiller,
-    maincolor: "#ce8d15",
+    maincolor: "#ce8d15ff",
     master: {
       image: Kira,
       pos: {
@@ -116,7 +133,7 @@ const StandsDB: IObjStandMaster[] = [
         x: 1.6,
         y: 2,
       },
-      stats: ["C", "B", "D", "E", "D", "B"],
+      stats: ["A", "B", "D", "B", "B", "A"],
     },
     background: {
       pixi: {
@@ -126,6 +143,10 @@ const StandsDB: IObjStandMaster[] = [
         color: `url(${KiraBack})`,
         scale: "20%",
       },
+    },
+    audio: {
+      init: KiraAudiInit,
+      main: KiraAudiMain,
     },
   },
   // {
