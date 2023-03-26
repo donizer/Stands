@@ -62,14 +62,14 @@ export const PixiComp = (props: {
     >
       <Sprite
         image={props.currStand.background.pixi?.image}
-        scale={dimensions.width / 5000}
+        scale={dimensions.width > dimensions.heigth == true ? 0.3 : 0.15}
         x={dimensions.width / 1.5}
         y={dimensions.heigth / 2.2}
         anchor={0.5}
       />
       <Container>
         <Sprite
-          scale={dimensions.heigth / 1200}
+          scale={dimensions.width > dimensions.heigth == true ? 0.8 : 0.5}
           image={props.currStand.master?.image}
           x={
             dimensions.width / props.currStand.master!.pos.x +
@@ -84,7 +84,7 @@ export const PixiComp = (props: {
           anchor={0.5}
         />
         <Sprite
-          scale={dimensions.heigth / 1200}
+          scale={dimensions.width > dimensions.heigth == true ? 0.8 : 0.5}
           image={props.currStand.stand?.image}
           x={
             dimensions.width / props.currStand.stand!.pos.x +
