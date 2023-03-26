@@ -9,7 +9,14 @@ export const PixiComp = (props: {
   setStand: (num: number) => void;
   currStand: IObjStandMaster;
 }) => {
-  const [dimensions, setDimensions] = useState({ width: 0, heigth: 0 });
+  const [dimensions, setDimensions] = useState({
+    width: 0,
+    heigth: 0,
+  });
+  const [gyroProp, setGyroProp] = useState({
+    b: 0,
+    g: 0,
+  });
 
   useEffect(() => {
     setDimensions({
@@ -26,7 +33,21 @@ export const PixiComp = (props: {
     bgImage.set(props.currStand.background.css?.color);
     bgScale.set(props.currStand.background.css?.scale);
   }, [props.currStand.stand]);
- 
+
+  useEffect(() => {
+    window.addEventListener(
+      "deviceorientation",
+      (e) => {
+        if (e.beta && e.gamma != null) {
+          setGyroProp({
+            b: ((e.beta - 45) / 90) * 100,
+            g: e.gamma,
+          });
+        }
+      },
+      true
+    );
+  }, []);
 
   return (
     <Stage
@@ -51,20 +72,29 @@ export const PixiComp = (props: {
           scale={dimensions.heigth / 1200}
           image={props.currStand.master?.image}
           x={
-            dimensions.width / props.currStand.master!.pos.x + MousePos().x / 12
+            dimensions.width / props.currStand.master!.pos.x +
+            MousePos().x / 12 +
+            gyroProp.g
           } //
           y={
             dimensions.heigth / props.currStand.master!.pos.y +
-            MousePos().y / 12
+            MousePos().y / 12 +
+            gyroProp.b
           } //
           anchor={0.5}
         />
         <Sprite
           scale={dimensions.heigth / 1200}
           image={props.currStand.stand?.image}
-          x={dimensions.width / props.currStand.stand!.pos.x + MousePos().x / 9} //
+          x={
+            dimensions.width / props.currStand.stand!.pos.x +
+            MousePos().x / 9 +
+            gyroProp.g
+          } //
           y={
-            dimensions.heigth / props.currStand.stand!.pos.y + MousePos().y / 9
+            dimensions.heigth / props.currStand.stand!.pos.y +
+            MousePos().y / 9 +
+            gyroProp.b
           } //
           anchor={0.5}
         />

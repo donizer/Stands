@@ -2,6 +2,7 @@ import "../scss/Layout.scss";
 import Button from "./Button";
 import StandsDB, { IObjStandMaster } from "../data/StandsDB";
 import SVGAElement from "../components/SVGComponent";
+import { useEffect } from "react";
 
 function Layout(props: {
   currStand: number;
@@ -14,6 +15,9 @@ function Layout(props: {
   }
 
   let sensor = new DeviceMotionEvent("devicemotion");
+  useEffect(() => {
+    console.log(sensor.acceleration);
+  });
 
   return (
     <div className="wrapper">
@@ -40,7 +44,7 @@ function Layout(props: {
         ></button>
       </header>
       <main>
-        {sensor.acceleration?.x} : {sensor.acceleration?.y} :{" "}
+        {sensor.acceleration?.x}:{sensor.acceleration?.y}:
         {sensor.acceleration?.z}
         <audio
           onEnded={(e) => {
