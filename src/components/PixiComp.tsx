@@ -89,12 +89,12 @@ export const PixiComp = (props: {
           x={
             dimensions.width / props.currStand.stand!.pos.x +
             MousePos().x / 9 +
-            gyroProp.g
+            gyroProp.g * 0.75
           } //
           y={
             dimensions.heigth / props.currStand.stand!.pos.y +
             MousePos().y / 9 +
-            gyroProp.b
+            gyroProp.b * 0.75
           } //
           anchor={0.5}
         />
