@@ -123,7 +123,7 @@ const StandsDB: IObjStandMaster[] = [
     master: {
       image: Kira,
       pos: {
-        x: 1.4,
+        x: 1.3,
         y: 2,
       },
     },
